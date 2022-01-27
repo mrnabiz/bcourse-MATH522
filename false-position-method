@@ -1,0 +1,39 @@
+disp('                        ');
+disp('                        ');
+disp('** Mohammad Reza Nabizadeh  89481177 **');
+disp('**** False Position Method ****');
+disp('                        ');
+ 
+f1 = input('Please enter the function: ','s');
+f2 = inline (f1);
+x1 = input ('Please enter the first number: ');
+x2 = input ('Please enter the second number: ');
+e = input ('Please enter the accuracy: ');
+    if f2(x1) == 0
+        fprintf ('the equation root is: %f\n',x1);
+        break;
+    end
+    if f2(x2) == 0
+        fprintf ('the equation root is: %f\n',x2);
+        break;
+    end
+    
+    while 1
+        x=(x1*f2(x2)-x2*f2(x1))/(f2(x2)-f2(x1));
+ 
+        if f2(x) == 0
+        fprintf ('the equation root is: %f\n',x);
+        break;
+        end
+        
+        if f2(x1)*f2(x) > 0
+        x1 = x;
+        else 
+        x2 = x;
+        end
+        
+        if abs(x2-x1) < e
+       fprintf ('the equation root is: %f\n',x);
+       break;
+       end
+    end
