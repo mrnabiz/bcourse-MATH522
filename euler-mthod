@@ -1,0 +1,20 @@
+disp('                        ');
+disp('                        ');
+disp('** Mohammad Reza Nabizadeh  89481177 **');
+disp('******* Euler Method *******');
+disp('                        ');
+ 
+f1 = input('Please enter the function: ','s');
+f2 = inline (f1);
+x0 = input ('Please enter the x0: ');
+y0 = input ('Please enter the y0: ');
+h = input('Please enter the h : ');
+x = input ('Please enter the x: ');
+while 1
+y0=y0+h*f2(x0,y0);
+x0 = x0+h;
+    if x0 == x
+        fprintf('y(x)= %f\n',y0);
+        break;
+    end
+end
