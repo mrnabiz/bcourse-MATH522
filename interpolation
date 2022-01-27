@@ -1,0 +1,30 @@
+disp('                        ');
+disp('                        ');
+disp('** Mohammad Reza Nabizadeh  89481177 **');
+disp('******* Interpolation *******');
+disp('                        ');
+ 
+n = input ('please enter the number of points: ');
+x0 = zeros(1,n);
+y0 = zeros(1,n);
+syms x;
+disp('                        ');
+for i=1:n
+fprintf('point %i :\n',i);
+x0(1,i) = input ('please enter x: ');
+y0(1,i) = input ('please enter y: ');
+disp('                        ');
+end
+k = 0;
+for j=1:n
+    l=1;
+    for i=1:n
+        if i==j 
+        continue;
+        end
+    l = l*((x-x0(1,i))/(x0(1,j)-x0(1,i)));    
+    end    
+k = k+l*y0(1,j);
+end
+disp('The function: ');
+disp(k);
