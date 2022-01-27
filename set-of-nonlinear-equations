@@ -1,0 +1,35 @@
+disp('                        ');
+disp('                        ');
+disp('** Mohammad Reza Nabizadeh  89481177 **');
+disp('* set of nonlinear equations *');
+disp('                        ');
+ 
+f1 = input('Please enter the function F: ','s');
+f2 = inline (f1,'x','y');
+g1 = input('Please enter the function G: ','s');
+g2 = inline (g1,'x','y');
+f1x = input('Please enter the function Fx: ','s');
+f2x = inline (f1x,'x','y');
+f1y = input('Please enter the function Fy: ','s');
+f2y = inline (f1y,'x','y');
+g1x = input('Please enter the function Gx: ','s');
+g2x = inline (g1x,'x','y');
+g1y= input('Please enter the function Gy:  ','s');
+g2y = inline (g1y,'x','y');
+x0 = input ('Please enter the x0: ');
+y0 = input ('Please enter the y0: ');
+e = input ('Please enter the desired accuracy: ');
+while 1
+    det = f2x(x0,y0)*g2y(x0,y0)-f2y(x0,y0)*g2x(x0,y0);
+    h = (g2(x0,y0)*f2y(x0,y0)-f2(x0,y0)*g2y(x0,y0))/det;
+    k = (g2x(x0,y0)*f2(x0,y0)-f2x(x0,y0)*g2(x0,y0))/det;
+    x0 = x0 + h;
+    y0 = y0 + k;
+    if abs(h) < e 
+      if  abs(k) < e
+          fprintf('x = %f\n',x0);
+          fprintf('y = %f\n',y0);
+          break;
+      end
+    end
+end
